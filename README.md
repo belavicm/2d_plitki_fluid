@@ -2,7 +2,9 @@
   
   Radionica: Numeričko modeliranje; Zagreb, 8.-10. svibnja 2019.
  
-  Predavanja i praktične vježbe pod vodstvom dr. Vladimira Đurđevića (Institut za meteorologiju, Fizički fakultet, Beograd, Srbija).
+  Radionica je organizirana u okviru poslijediplomskog sveučilišnog doktorskog studija fizike, smjer geofizika, koji izvodi Geofizički odsjek PMF-a, uz organizacijsku i financijsku potporu South Eastern European Climate Networka (International Centre for Theoretical Physics, Trst, Italija), a vodi ju izv. prof. dr. sc. Ivana Herceg Bulić
+ 
+  Predavanja i praktične vježbe pod vodstvom dr. sc. Vladimir Đurđević i dr. sc. Borivoj Rajković (Institut za meteorologiju, Fizički fakultet, Beograd, Srbija).
 
 ## Pokretanje modela  
 
@@ -39,5 +41,23 @@ make clean
 
  # O modelu  
 
-2D model plitkog fluida koristi Arakava c grid.  
-U glavnom programu modu se uključiti razni parametri npr. početni i rubni uvjeti, coriolis, advekcija, izvor/ponor...
+2D model plitkog fluida na mreži: Arakava c grid. 
+
+Model zapisuje polja "h","u" i "v" u netcdf file: data.nc ili txt format u put ./output/ 
+Na ekran se ispisuje korak, očuvanje mase, i visina sloja u izvoru!
+
+Nakon ponovnog pokretanja programa spremi "data.nc"
+```
+mv data.nc nesto_data.nc
+```
+
+U programu modu se uključiti razni parametri npr. početni i rubni uvjeti, coriolis, advekcija, izvor/ponor...
+  
+  1. Zadatak: početni i rubni uvjeti (biraj samo jedan od ta dva)
+  CALL bc_ic_poremecaj
+  !CALL bc_ic_0
+  2. Zadatak: dodavanje advekcije, corilisa izvora (moguću su sve kombinacije isključi/uklkjuči šta želiš)
+  
+  3.Zadatak: povećaj rezoluciju - potrebno je samo staviti varijablu "res_pov=1" (mogući izbor 1,2,4,8 itd...) u datoteki "./src/PF_init.F90". Program sam računa IM,JM,d i ostale varijable.
+
+Neke petlje u modelu su paralelizirane s OpenMP-om.
