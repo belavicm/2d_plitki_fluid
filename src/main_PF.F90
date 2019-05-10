@@ -52,7 +52,7 @@ PROGRAM PF
     ! ispis polja u nc-file, svakih pola sata
     IF(MOD(NINT(it*dt),1800)==0) call wrt_nc
 
-    !srednja visina izvora na izvoru nakon 24h=24*3600=86400
+    !srednja visina fluida na izvoru nakon 24h=24*3600=86400
     ! 250e je dimenzija izvora
     IF(NINT(it*dt)==86400) THEN
       visina_izvora=0
