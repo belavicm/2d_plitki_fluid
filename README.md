@@ -53,11 +53,10 @@ mv data.nc nesto_data.nc
 
 U programu modu se uključiti razni parametri npr. početni i rubni uvjeti, coriolis, advekcija, izvor/ponor...
   
-  1. Zadatak: početni i rubni uvjeti (biraj samo jedan od ta dva)
-  CALL bc_ic_poremecaj
-  !CALL bc_ic_0
-  2. Zadatak: dodavanje advekcije, corilisa izvora (moguću su sve kombinacije isključi/uklkjuči šta želiš)
-  
-  3.Zadatak: povećaj rezoluciju - potrebno je samo staviti varijablu "res_pov=1" (mogući izbor 1,2,4,8 itd...) u datoteki "./src/PF_init.F90". Program sam računa IM,JM,d i ostale varijable.
+  1. Zadatak: početni i rubni uvjeti (biraj samo jedan od ta dva)  
+  CALL bc_ic_poremecaj  
+  !CALL bc_ic_0  
+  2. Zadatak: dodavanje advekcije, corilisa, izvora (moguću su sve kombinacije isključi/uključi šta želiš)  
+  3.Zadatak: povećaj rezoluciju - potrebno je samo staviti varijablu "res_pov=1" (mogući izbor 1,2,4,8 itd...) u kodu "./src/PF_init.F90". Program sam računa IM,JM,d i ostale varijable.  
 
 Neke petlje u modelu su paralelizirane s OpenMP-om.
