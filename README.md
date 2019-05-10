@@ -35,7 +35,7 @@ make run
 make clean
   ``` 
 
+ # O modelu  
 
-
-
-
+2D model plitkog fluida koristi Arakava c grid.  
+U glavnom programu modu se uključiti razni parametri npr. početni i rubni uvjeti, coriolis, advekcija, izvor/ponor...
