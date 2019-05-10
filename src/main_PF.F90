@@ -22,6 +22,7 @@ PROGRAM PF
   call wrt_nc_open
   
   !ispis polja u t=0
+  it=1
   call wrt_nc
 
   !petlja po vremenu
