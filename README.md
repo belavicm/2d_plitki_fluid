@@ -1,6 +1,8 @@
 # 2D Model plitkog fluida  
   
-  Radionica: Numeričko modeliranje; Zagreb, svibanj 2019.
+  Radionica: Numeričko modeliranje; Zagreb, 8.-10. svibnja 2019.
+ 
+  Predavanja i praktične vježbe pod vodstvom dr. Vladimira Đurđevića (Institut za meteorologiju, Fizički fakultet, Beograd, Srbija).
 
 ## Pokretanje modela  
 
