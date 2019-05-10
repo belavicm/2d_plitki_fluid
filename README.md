@@ -57,6 +57,7 @@ U programu modu se uključiti razni parametri npr. početni i rubni uvjeti, cori
   CALL bc_ic_poremecaj  
   !CALL bc_ic_0  
   2. Zadatak: dodavanje advekcije, corilisa, izvora (moguću su sve kombinacije isključi/uključi šta želiš)  
+    
   3.Zadatak: povećaj rezoluciju - potrebno je samo staviti varijablu "res_pov=1" (mogući izbor 1,2,4,8 itd...) u kodu "./src/PF_init.F90". Program sam računa IM,JM,d i ostale varijable.  
 
 Neke petlje u modelu su paralelizirane s OpenMP-om.
