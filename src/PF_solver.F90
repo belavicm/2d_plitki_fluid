@@ -93,10 +93,18 @@ MODULE PF_solver
   SUBROUTINE source_sink
   
   real, dimension (IM,JM) :: ss
+  integer :: ii,jj
   ss=0
   !source/sink
-  ss(IM/2-20,JM/2  )= dt*2/60
-  ss(IM/2+20,JM/2  )= -dt*2/60  
+  
+  
+  DO ii=-NINT(250e3/d-1),0
+    DO jj=-NINT(250e3/d-1),0
+      ss(NINT(IM/2-raspon/d+ii),JM/2+jj  )=  dt*2/60
+      ss(NINT(IM/2+raspon/d+ii),JM/2+jj  )= -dt*2/60
+    END DO
+  END DO
+  
   hf=hf+ss
 
   END SUBROUTINE source_sink

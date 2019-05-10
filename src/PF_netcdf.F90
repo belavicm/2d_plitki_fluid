@@ -28,7 +28,7 @@ MODULE PF_netcdf
   ! We are writing 4D data, a 2 x 6 x 12 lvl-lat-lon grid, with 2
   ! timesteps of data.
   integer, parameter :: NDIMS = 3, NRECS = 2
-  integer, parameter ::  NLATS = IM, NLONS = JM
+  integer   ::  NLATS, NLONS
   character (len = *), parameter :: LAT_NAME = "i"
   character (len = *), parameter :: LON_NAME = "j"
   character (len = *), parameter :: REC_NAME = "time"
@@ -39,7 +39,7 @@ MODULE PF_netcdf
   integer :: start(NDIMS), count(NDIMS)
 
   ! These program variables hold the latitudes and longitudes.
-  integer :: lats(NLATS), lons(NLONS)
+  integer, allocatable  :: lats(:), lons(:)
   integer :: lon_varid, lat_varid
 
   ! We will create two netCDF variables, one each for temperature and
@@ -73,6 +73,10 @@ MODULE PF_netcdf
 
   SUBROUTINE wrt_nc_open
 
+  NLONS=IM
+  NLATS=JM
+  allocate ( lats(NLATS) )
+  allocate ( lons(NLONS) )
 
   !! Create pretend data. If this wasn't an example program, we would
   ! have some real data to write, for example, model output.
@@ -144,7 +148,7 @@ MODULE PF_netcdf
 
 
   SUBROUTINE wrt_nc
-  start(3) = it
+  start(3) = nrec
      call check( nf90_put_var(ncid, u_varid, u, start = start, &
                               count = count) )
      call check( nf90_put_var(ncid, v_varid, v, start = start, &
@@ -152,7 +156,7 @@ MODULE PF_netcdf
   
      call check( nf90_put_var(ncid, h_varid, h, start = start, &
                               count = count) )
-
+  nrec=nrec+1
   END SUBROUTINE wrt_nc
 
   SUBROUTINE wrt_nc_close
